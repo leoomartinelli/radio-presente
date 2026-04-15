@@ -988,13 +988,20 @@
 
   function setupPlayer(type, idx, src) {
     const pid = type + '-' + idx;
-    const audio = new Audio(src);
 
-    // Essencial para o Celular permitir o Web Audio API
-    audio.crossOrigin = "anonymous";
+    // --- O SEGREDO ESTÁ AQUI ---
+    // Só cria um novo Audio na memória se ele ainda não existir
+    if (!audios[pid]) {
+      const novoAudio = new Audio(src);
+      novoAudio.crossOrigin = "anonymous";
+      audios[pid] = novoAudio;
+    }
 
-    audios[pid] = audio;
+    // Pega o áudio da memória (seja o recém-criado ou o que já estava lá)
+    const audio = audios[pid];
 
+    // Precisamos sempre refazer esses eventos porque o HTML do painel
+    // é destruído e recriado toda vez que abrimos uma pessoa nova
     audio.ontimeupdate = () => {
       if (!audio.duration) return;
       const pct = (audio.currentTime / audio.duration * 100).toFixed(1);
@@ -1008,6 +1015,7 @@
       const btn = document.getElementById('play-' + pid);
       if (btn) btn.classList.remove('playing');
       updatePlayIcon(pid, false, type === 'music');
+
       if (type === 'voice') {
         document.querySelectorAll('.wm-bar').forEach(b => b.classList.remove('active'));
         const orbitItem = document.getElementById('orbit-item-' + activeIdx);
