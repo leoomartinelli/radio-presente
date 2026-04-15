@@ -826,6 +826,8 @@
 
     stopAll();
 
+    resetarVolume();
+
     // --- LOGICA DE ELEVAÇÃO DE CAMADA ---
     // Se já tinha alguém selecionado, devolve pra camada de baixo
     if (activeIdx !== null) {
@@ -873,6 +875,31 @@
       }
 
     }, 100);
+  }
+
+  function resetarVolume() {
+    const slider = document.getElementById('musica-volume');
+    const volVal = document.getElementById('vol-val');
+
+    // Volta a barra visual para 20
+    if (slider) slider.value = 20;
+    if (volVal) volVal.textContent = '20%';
+
+    const volPadrao = 0.2;
+
+    // Aplica nos áudios base
+    for (let pid in audios) {
+      if (pid.startsWith('music')) {
+        audios[pid].volume = volPadrao;
+      }
+    }
+
+    // Aplica na mesa de som do celular
+    for (let pid in gainNodes) {
+      if (pid.startsWith('music')) {
+        gainNodes[pid].gain.value = volPadrao;
+      }
+    }
   }
 
   function closePanel() {
@@ -1028,24 +1055,27 @@
     const audio = audios[pid];
     if (!audio) return;
 
-    // --- MESA DE SOM VIRTUAL (Web Audio API) ---
-    // Se esse áudio ainda não foi conectado ao mixer, conectamos agora
+    // Se o nó não existe, cria
     if (!gainNodes[pid]) {
       const source = audioCtx.createMediaElementSource(audio);
       const gainNode = audioCtx.createGain();
       source.connect(gainNode);
       gainNode.connect(audioCtx.destination);
       gainNodes[pid] = gainNode;
-
-      // Ajusta o volume com base na barra antes de dar play
-      if (type === 'music') {
-        const sliderVal = document.getElementById('musica-volume').value / 100;
-        gainNode.gain.value = sliderVal;
-      } else {
-        gainNode.gain.value = 1.0; // Voz sempre no máximo
-      }
     }
-    // -------------------------------------------
+
+    // --- CORREÇÃO DO BUG ALEATÓRIO ---
+    // Agora o volume é atualizado SEMPRE que o play é apertado,
+    // garantindo que ele obedeça a barra visual na tela.
+    if (type === 'music') {
+      const sliderVal = document.getElementById('musica-volume').value / 100;
+      gainNodes[pid].gain.value = sliderVal;
+      audio.volume = sliderVal; // Garante o PC
+    } else {
+      gainNodes[pid].gain.value = 1.0; // Voz sempre no máximo
+      audio.volume = 1.0;
+    }
+    // ----------------------------------
 
     const isPlaying = !audio.paused;
     const btn = document.getElementById('play-' + pid);
