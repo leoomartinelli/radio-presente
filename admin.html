@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel da Rádio - Gerador JSON</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #08080f;
+            color: #fff;
+            font-family: 'Inter', system-ui, sans-serif;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media(max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #c77dff;
+        }
+
+        .panel {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(199, 125, 255, 0.2);
+            border-radius: 18px;
+            padding: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 6px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 10px 14px;
+            color: #fff;
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+            transition: border 0.2s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #c77dff;
+        }
+
+        /* Estilo para os inputs de arquivo */
+        input[type="file"] {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px dashed rgba(199, 125, 255, 0.4);
+            border-radius: 8px;
+            padding: 10px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        input[type="file"]:hover {
+            border-color: #c77dff;
+        }
+
+        input[type="file"]::file-selector-button {
+            background: rgba(199, 125, 255, 0.15);
+            border: 1px solid rgba(199, 125, 255, 0.3);
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: background 0.2s;
+        }
+
+        input[type="file"]::file-selector-button:hover {
+            background: rgba(199, 125, 255, 0.3);
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            background: #c77dff;
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .person-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .person-card strong {
+            color: #c77dff;
+        }
+
+        textarea {
+            width: 100%;
+            height: 200px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #4ecdc4;
+            padding: 10px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
+            resize: vertical;
+            margin-top: 20px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="panel">
+            <h1>Adicionar Sintonizador</h1>
+            <form id="dataForm">
+                <div class="form-group">
+                    <label>Nome *</label>
+                    <input type="text" id="nome" required placeholder="Ex: Família Blair">
+                </div>
+                <div class="form-group">
+                    <label>Relação *</label>
+                    <input type="text" id="relacao" required placeholder="Ex: família, melhor amiga...">
+                </div>
+
+                <div class="form-group">
+                    <label>Foto (Opcional)</label>
+                    <input type="file" id="foto" accept="image/*">
+                </div>
+
+                <hr>
+
+                <div class="form-group">
+                    <label>Áudio de Voz (Opcional)</label>
+                    <input type="file" id="audio_voz" accept="audio/*">
+                </div>
+                <div class="form-group">
+                    <label>Título da Voz</label>
+                    <input type="text" id="audio_voz_titulo" placeholder="Ex: Mensagem da família">
+                </div>
+
+                <hr>
+
+                <div class="form-group">
+                    <label>Música (Opcional)</label>
+                    <input type="file" id="audio_musica" accept="audio/*">
+                </div>
+                <div class="form-group">
+                    <label>Título da Música</label>
+                    <input type="text" id="audio_musica_titulo" placeholder="Ex: Nossa música especial">
+                </div>
+
+                <button type="submit" class="btn">Adicionar à Lista</button>
+            </form>
+        </div>
+
+        <div class="panel">
+            <h1>Pessoas Adicionadas (<span id="contador">0</span>)</h1>
+            <div id="listaPessoas">
+            </div>
+
+            <textarea id="jsonOutput" readonly placeholder="O JSON gerado aparecerá aqui..."></textarea>
+
+            <button id="btnBaixar" class="btn btn-secondary" onclick="baixarJSON()" disabled>Baixar data.json</button>
+        </div>
+    </div>
+
+    <script>
+        let dadosDaRadio = [];
+
+        // Pega o valor do texto simples
+        function getTexto(id) {
+            const valor = document.getElementById(id).value.trim();
+            return valor === "" ? null : valor;
+        }
+
+        // Pega o nome do arquivo selecionado e junta com o nome da pasta
+        function getCaminhoArquivo(id, pasta) {
+            const input = document.getElementById(id);
+            if (input.files && input.files.length > 0) {
+                // Pega apenas o nome do arquivo (ex: "foto.jpg") e junta com a pasta
+                return pasta + "/" + input.files[0].name;
+            }
+            return null;
+        }
+
+        document.getElementById('dataForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Monta o objeto já com os caminhos corretos das pastas
+            const novaPessoa = {
+                nome: getTexto('nome'),
+                relacao: getTexto('relacao'),
+                foto: getCaminhoArquivo('foto', 'fotos'),
+                audio_voz: getCaminhoArquivo('audio_voz', 'audios'),
+                audio_voz_titulo: getTexto('audio_voz_titulo'),
+                audio_musica: getCaminhoArquivo('audio_musica', 'audios'),
+                audio_musica_titulo: getTexto('audio_musica_titulo')
+            };
+
+            dadosDaRadio.push(novaPessoa);
+            atualizarTela();
+
+            // Limpa o formulário
+            this.reset();
+            document.getElementById('nome').focus();
+        });
+
+        function atualizarTela() {
+            document.getElementById('contador').textContent = dadosDaRadio.length;
+
+            const lista = document.getElementById('listaPessoas');
+            lista.innerHTML = '';
+
+            dadosDaRadio.forEach((pessoa) => {
+                const card = document.createElement('div');
+                card.className = 'person-card';
+                card.innerHTML = `<strong>${pessoa.nome}</strong> - ${pessoa.relacao}`;
+                lista.appendChild(card);
+            });
+
+            const jsonString = JSON.stringify(dadosDaRadio, null, 2);
+            document.getElementById('jsonOutput').value = jsonString;
+            document.getElementById('btnBaixar').disabled = dadosDaRadio.length === 0;
+        }
+
+        function baixarJSON() {
+            const jsonString = JSON.stringify(dadosDaRadio, null, 2);
+            const blob = new Blob([jsonString], { type: "application/json" });
+            const url = URL.createObjectURL(blob);
+
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'data.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+
+</body>
+
+</html>

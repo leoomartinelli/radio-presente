@@ -1,0 +1,1152 @@
+<meta charset="UTF-8">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+  }
+
+  body {
+    background: #08080f;
+    color: #fff;
+    font-family: 'Inter', system-ui, sans-serif;
+    min-height: 100vh
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap');
+
+  .page {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 0 0 60px
+  }
+
+  .header {
+    text-align: center;
+    padding: 32px 20px 16px;
+    position: relative
+  }
+
+  .on-air {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    padding: 5px 14px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
+    margin-bottom: 16px
+  }
+
+  .dot-red {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #ff4040;
+    animation: blink 1.2s ease-in-out infinite
+  }
+
+  @keyframes blink {
+
+    0%,
+    100% {
+      opacity: 1;
+      box-shadow: 0 0 0 0 rgba(255, 64, 64, 0.5)
+    }
+
+    50% {
+      opacity: 0.6;
+      box-shadow: 0 0 0 5px rgba(255, 64, 64, 0)
+    }
+  }
+
+  .title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(56px, 15vw, 76px);
+    letter-spacing: 4px;
+    line-height: 0.88;
+    background: linear-gradient(135deg, #fff 0%, #c77dff 55%, #7b2fff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text
+  }
+
+  .subtitle {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 6px
+  }
+
+
+
+  .hero-avatar:hover {
+    transform: scale(1.02);
+  }
+
+  .hero-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    /* A borda com a mesma cor do fundo cria o efeito de "anel" flutuante */
+    border: 4px solid #08080f;
+  }
+
+  .freq {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: #c77dff;
+    letter-spacing: 3px;
+    margin-top: 4px
+  }
+
+  .dial-section {
+    padding: 0 16px 8px
+  }
+
+  .dial-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.2);
+    padding: 0 4px;
+    margin-bottom: 10px
+  }
+
+  .dial-track {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 14px;
+    margin-bottom: 16px
+  }
+
+  .dial-line {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(199, 125, 255, 0.3) 15%, rgba(199, 125, 255, 0.6) 50%, rgba(199, 125, 255, 0.3) 85%, transparent);
+    position: absolute;
+    top: 6px
+  }
+
+  .dial-marks {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 4px
+  }
+
+  .dial-mark {
+    width: 1px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.15)
+  }
+
+  .dial-mark.big {
+    height: 12px;
+    background: rgba(255, 255, 255, 0.3)
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 0 4px
+  }
+
+  .person-btn {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 14px;
+    padding: 12px 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+    position: relative;
+    overflow: hidden
+  }
+
+  .person-btn:hover {
+    background: rgba(199, 125, 255, 0.08);
+    border-color: rgba(199, 125, 255, 0.25);
+    transform: translateY(-1px)
+  }
+
+  .person-btn.active {
+    background: rgba(199, 125, 255, 0.12);
+    border-color: rgba(199, 125, 255, 0.5)
+  }
+
+  .person-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 2px;
+    background: #c77dff;
+    border-radius: 2px
+  }
+
+  .person-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    margin: 0 auto 6px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.5);
+    transition: border-color 0.2s
+  }
+
+  .person-btn.active .person-avatar {
+    border-color: rgba(199, 125, 255, 0.6)
+  }
+
+  .person-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+  }
+
+  .person-name {
+    font-size: 11px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.75);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+  }
+
+  .person-tag {
+    font-size: 10px;
+    color: rgba(199, 125, 255, 0.6);
+    margin-top: 2px
+  }
+
+  .panel-wrap {
+    padding: 0 4px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1)
+  }
+
+  .panel-wrap.hidden {
+    height: 0;
+    opacity: 0;
+    pointer-events: none
+  }
+
+  .panel-wrap.visible {
+    opacity: 1
+  }
+
+  .panel {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(199, 125, 255, 0.2);
+    border-radius: 18px;
+    margin-top: 10px;
+    overflow: hidden
+  }
+
+  .panel-inner {
+    padding: 18px
+  }
+
+  .panel-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px
+  }
+
+  .panel-photo {
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(199, 125, 255, 0.2)
+  }
+
+  .panel-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+  }
+
+  .panel-photo-init {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.4)
+  }
+
+  .panel-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff
+  }
+
+  .panel-relation {
+    font-size: 12px;
+    color: rgba(199, 125, 255, 0.7);
+    margin-top: 2px
+  }
+
+  .audio-block {
+    margin-bottom: 12px
+  }
+
+  .audio-label {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.25);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px
+  }
+
+  .audio-label-icon {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center
+  }
+
+  .audio-label-icon.voice {
+    background: rgba(199, 125, 255, 0.15)
+  }
+
+  .audio-label-icon.music {
+    background: rgba(255, 180, 60, 0.12)
+  }
+
+  .custom-player {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px
+  }
+
+  .play-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(199, 125, 255, 0.15);
+    border: 1px solid rgba(199, 125, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.2s
+  }
+
+  .play-btn:hover {
+    background: rgba(199, 125, 255, 0.25)
+  }
+
+  .play-btn.playing {
+    background: rgba(199, 125, 255, 0.3)
+  }
+
+  .play-btn.music-btn {
+    background: rgba(255, 180, 60, 0.12);
+    border-color: rgba(255, 180, 60, 0.25)
+  }
+
+  .play-btn.music-btn:hover {
+    background: rgba(255, 180, 60, 0.22)
+  }
+
+  .play-btn.music-btn.playing {
+    background: rgba(255, 180, 60, 0.28)
+  }
+
+  .player-info {
+    flex: 1;
+    min-width: 0
+  }
+
+  .player-title {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.75);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+  }
+
+  .player-sub {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.3);
+    margin-top: 2px
+  }
+
+  .progress-bar {
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    margin-top: 7px;
+    cursor: pointer;
+    position: relative
+  }
+
+  .progress-fill {
+    height: 100%;
+    border-radius: 2px;
+    width: 0%;
+    transition: width 0.3s linear
+  }
+
+  .progress-fill.voice-fill {
+    background: rgba(199, 125, 255, 0.7)
+  }
+
+  .progress-fill.music-fill {
+    background: rgba(255, 180, 60, 0.7)
+  }
+
+  .no-audio {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.2);
+    font-style: italic;
+    padding: 8px 0
+  }
+
+  .group-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(199, 125, 255, 0.08);
+    border: 1px solid rgba(199, 125, 255, 0.15);
+    border-radius: 50px;
+    padding: 3px 10px;
+    font-size: 10px;
+    color: rgba(199, 125, 255, 0.7);
+    margin-bottom: 10px
+  }
+
+  .wave-mini {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    height: 16px
+  }
+
+  .wm-bar {
+    width: 2px;
+    border-radius: 1px;
+    background: rgba(199, 125, 255, 0.5)
+  }
+
+  .wm-bar.active {
+    background: #c77dff;
+    animation: wm var(--d) ease-in-out infinite;
+    animation-delay: var(--dl)
+  }
+
+  @keyframes wm {
+
+    0%,
+    100% {
+      height: var(--mn)
+    }
+
+    50% {
+      height: var(--mx)
+    }
+  }
+
+  .close-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-left: auto;
+    flex-shrink: 0;
+    transition: all 0.2s
+  }
+
+  .close-btn:hover {
+    background: rgba(255, 255, 255, 0.1)
+  }
+
+  .footer-counter {
+    text-align: center;
+    padding: 20px;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.2);
+    letter-spacing: 1px
+  }
+
+  .eq-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding: 8px 0 4px
+  }
+
+  .eq-b {
+    width: 3px;
+    border-radius: 2px;
+    background: rgba(199, 125, 255, 0.3);
+    animation: eq var(--d) ease-in-out infinite;
+    animation-delay: var(--dl)
+  }
+
+  @keyframes eq {
+
+    0%,
+    100% {
+      height: var(--mn)
+    }
+
+    50% {
+      height: var(--mx)
+    }
+  }
+
+
+  /* --- ÁREA DO AVATAR E ÓRBITA --- */
+  .hero-section {
+    position: relative;
+    width: 190px;
+    height: 190px;
+    margin: 10px auto 0px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Impede que o efeito de ondas corte o site */
+    overflow: visible;
+  }
+
+  .hero-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(135deg, #fff 0%, #c77dff 55%, #7b2fff 100%);
+    box-shadow: 0 8px 30px rgba(199, 125, 255, 0.4);
+    position: relative;
+    z-index: 10;
+  }
+
+  .hero-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #08080f;
+  }
+
+  /* Trilhos de Rotação */
+  .orbit-track {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    animation: spin 40s linear infinite;
+    z-index: 20;
+    /* A MÁGICA ESTÁ AQUI */
+    pointer-events: none;
+    /* Deixa o clique "atravessar" o trilho vazio */
+  }
+
+  /* NOVO Trilho Elevado invisível */
+  .elevated-track {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    animation: spin 40s linear infinite;
+    /* Camada mais alta de todas */
+    z-index: 100;
+    /* Importante para não bloquear cliques em outros elementos do site */
+    pointer-events: none;
+  }
+
+  /* Bolinhas (Fotos) */
+  .orbit-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 38px;
+    height: 38px;
+    margin-top: -19px;
+    margin-left: -19px;
+    border-radius: 50%;
+    background: #08080f;
+    border: 2px solid rgba(199, 125, 255, 0.4);
+    cursor: pointer;
+    pointer-events: auto;
+    /* Garante que a foto da pessoa seja clicável */
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+
+  /* Traz a pessoa selecionada para frente e aumenta */
+  .orbit-item.active-orbit {
+    border-color: #c77dff;
+    /* Força a foto a ir pro centro (0,0) e crescer o suficiente para cobrir o avatar da Manu! */
+    transform: translate(0px, 0px) scale(2.7) !important;
+  }
+
+  .orbit-content {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    animation: counter-spin 40s linear infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .orbit-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Efeito de Ondas de Áudio (Aura) - CORRIGIDO */
+  .orbit-item.is-playing::before,
+  .orbit-item.is-playing::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid #c77dff;
+    border-radius: 50%;
+    animation: orbit-wave 1.5s ease-out infinite;
+    z-index: -1;
+  }
+
+  .orbit-item.is-playing::after {
+    animation-delay: 0.75s;
+  }
+
+  @keyframes orbit-wave {
+    0% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+
+    100% {
+      transform: scale(2.8);
+      opacity: 0;
+    }
+  }
+
+  /* Animações Keyframes */
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes counter-spin {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+</style>
+
+<div class="page">
+
+  <div class="header">
+    <div class="on-air">
+      <div class="dot-red"></div>ON AIR
+    </div>
+
+    <div class="hero-section">
+      <div class="orbit-track" id="orbit-track"></div>
+
+      <div class="hero-avatar">
+        <img src="fotos/foto-manu.jpg" alt="Manu Blair">
+      </div>
+    </div>
+    <div class="title">MANU<br>BLAIR</div>
+    <div class="subtitle">17 anos · rádio especial</div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:3px;margin-top:10px; height: 26px;">
+      <div class="eq-b" style="height:8px;--d:0.7s;--dl:0s;--mn:4px;--mx:16px"></div>
+      <div class="eq-b" style="height:14px;--d:0.9s;--dl:0.1s;--mn:6px;--mx:20px"></div>
+      <div class="eq-b" style="height:10px;--d:0.6s;--dl:0.2s;--mn:5px;--mx:18px"></div>
+      <div class="eq-b" style="height:18px;--d:0.8s;--dl:0.05s;--mn:8px;--mx:22px"></div>
+      <div class="eq-b" style="height:12px;--d:1.0s;--dl:0.15s;--mn:5px;--mx:16px"></div>
+      <div class="eq-b" style="height:20px;--d:0.75s;--dl:0.25s;--mn:6px;--mx:22px"></div>
+      <div class="eq-b" style="height:9px;--d:0.65s;--dl:0.3s;--mn:4px;--mx:14px"></div>
+      <div class="eq-b" style="height:15px;--d:0.85s;--dl:0.1s;--mn:7px;--mx:20px"></div>
+      <div class="eq-b" style="height:11px;--d:0.7s;--dl:0.2s;--mn:5px;--mx:16px"></div>
+      <div class="eq-b" style="height:17px;--d:0.95s;--dl:0.05s;--mn:6px;--mx:21px"></div>
+      <div class="eq-b" style="height:8px;--d:0.6s;--dl:0.3s;--mn:4px;--mx:13px"></div>
+      <div class="eq-b" style="height:14px;--d:0.8s;--dl:0.15s;--mn:6px;--mx:18px"></div>
+    </div>
+    <div class="freq">FM 17.0 — ESPECIAL</div>
+  </div>
+
+  <div style="padding: 10px 20px; background: rgba(255,255,255,0.05); border-radius: 10px; margin: 10px 16px;">
+    <label style="font-size: 10px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1px;">Volume
+      da Trilha: <span id="vol-val">20%</span></label>
+    <input type="range" id="musica-volume" min="0" max="100" value="20" style="width: 100%; accent-color: #ffb340;">
+  </div>
+  <div class="dial-section">
+    <div class="dial-label">Sintonize uma pessoa</div>
+    <div class="dial-track">
+      <div class="dial-line"></div>
+      <div class="dial-marks" id="dial-marks"></div>
+    </div>
+    <div class="grid" id="grid"></div>
+    <div class="panel-wrap hidden" id="panel-wrap">
+      <div class="panel" id="panel">
+        <div class="panel-inner" id="panel-inner"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-counter" id="footer"></div>
+</div>
+
+<script>
+  // 1. DATA agora é uma variável vazia que será preenchida pelo JSON
+  let DATA = [];
+  const colors = ['#7b2fff', '#c77dff', '#ff6b9d', '#ffb340', '#4ecdc4', '#45b7d1'];
+  let activeIdx = null;
+  let audios = {};
+
+  // 2. Criamos uma função assíncrona para buscar os dados
+  async function iniciarRadio() {
+    try {
+      const resposta = await fetch('data.json');
+      if (!resposta.ok) throw new Error('Falha');
+      DATA = await resposta.json();
+
+      buildMarks();
+      buildGrid();
+      buildOrbit(); // <-- ADICIONE ESTA LINHA AQUI
+
+      document.getElementById('footer').textContent = DATA.length + ' pessoas sintonizadas com amor';
+    } catch (erro) {
+      console.error(erro);
+    }
+  }
+
+  function initials(name) {
+    return name.split(' ').slice(0, 2).map(w => w[0]).join('').toUpperCase();
+  }
+
+
+
+  function buildMarks() {
+    const el = document.getElementById('dial-marks');
+    for (let i = 0; i < 40; i++) {
+      const d = document.createElement('div');
+      d.className = 'dial-mark' + (i % 5 === 0 ? ' big' : '');
+      el.appendChild(d);
+    }
+  }
+
+  function buildGrid() {
+    const grid = document.getElementById('grid');
+    grid.innerHTML = '';
+    DATA.forEach((p, i) => {
+      const btn = document.createElement('div');
+      btn.className = 'person-btn';
+      btn.id = 'btn-' + i;
+      const color = colors[i % colors.length];
+      const init = initials(p.nome);
+      btn.innerHTML = `
+      <div class="person-avatar" id="av-${i}">
+        ${p.foto ? `<img src="${p.foto}">` : `<span style="color:${color}">${init}</span>`}
+      </div>
+      <div class="person-name">${p.nome}</div>
+      <div class="person-tag">${p.relacao}</div>
+    `;
+      btn.onclick = () => togglePanel(i);
+      grid.appendChild(btn);
+    });
+  }
+
+  function togglePanel(idx) {
+    if (activeIdx === idx) {
+      closePanel();
+      return;
+    }
+
+    stopAll();
+
+    // --- LOGICA DE ELEVAÇÃO DE CAMADA ---
+    // Se já tinha alguém selecionado, devolve pra camada de baixo
+    if (activeIdx !== null) {
+      setItemElevation(activeIdx, false);
+    }
+    // Sobe a nova pessoa para a camada de cima
+    setItemElevation(idx, true);
+    // -------------------------------------
+
+    activeIdx = idx;
+
+    document.querySelectorAll('.orbit-item').forEach(el => el.classList.remove('active-orbit', 'is-playing'));
+    const orbitItem = document.getElementById('orbit-item-' + idx);
+    if (orbitItem) {
+      orbitItem.classList.add('active-orbit');
+      // A classe .active-orbit no CSS agora cuida do transform: scale(1.2)
+    }
+
+    document.querySelectorAll('.person-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('btn-' + idx).classList.add('active');
+
+
+
+    renderPanel(idx);
+    const wrap = document.getElementById('panel-wrap');
+    wrap.classList.remove('hidden');
+    wrap.classList.add('visible');
+    wrap.style.height = 'auto';
+
+    setTimeout(() => {
+      document.getElementById('btn-' + idx).scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+      // --- NOVO: DA O PLAY AUTOMÁTICO NOS DOIS ---
+      const voiceId = 'voice-' + idx;
+      const musicId = 'music-' + idx;
+
+      // Inicia a voz, se existir
+      if (audios[voiceId]) {
+        togglePlay(voiceId, 'voice');
+      }
+
+      // Inicia a música de fundo, se existir
+      if (audios[musicId]) {
+        togglePlay(musicId, 'music');
+      }
+
+    }, 100);
+  }
+
+  function closePanel() {
+    stopAll();
+
+    // Esconde o painel com a animação suave original
+    const wrap = document.getElementById('panel-wrap');
+    if (wrap) {
+      wrap.classList.remove('visible');
+      wrap.classList.add('hidden');
+    }
+
+    // Tira a seleção dos botões na grade
+    document.querySelectorAll('.person-btn').forEach(b => b.classList.remove('active'));
+
+    // Tira o destaque e a aura da bolinha que estava na órbita
+    document.querySelectorAll('.orbit-item').forEach(el => el.classList.remove('active-orbit', 'is-playing'));
+
+    activeIdx = null;
+  }
+
+  function stopAll() {
+    Object.values(audios).forEach(a => { try { a.pause(); a.currentTime = 0; } catch (e) { } });
+    document.querySelectorAll('.play-btn').forEach(b => b.classList.remove('playing'));
+    document.querySelectorAll('.progress-fill').forEach(b => b.style.width = '0%');
+    document.querySelectorAll('.wm-bar').forEach(b => b.classList.remove('active'));
+  }
+
+  function renderPanel(idx) {
+    const p = DATA[idx];
+    const color = colors[idx % colors.length];
+    const init = initials(p.nome);
+    const inner = document.getElementById('panel-inner');
+
+    inner.innerHTML = `
+    <div class="panel-header">
+      <div class="panel-photo" id="pp-photo">
+        ${p.foto ? `<img src="${p.foto}">` : `<div class="panel-photo-init" style="color:${color}">${init}</div>`}
+      </div>
+      <div style="flex:1;min-width:0">
+        <div class="panel-name">${p.nome}</div>
+        <div class="panel-relation">${p.relacao}</div>
+        <div class="wave-mini" id="wave-mini" style="margin-top:6px">
+          ${[6, 10, 14, 9, 16, 11, 7, 13, 10, 8].map((h, i) => `<div class="wm-bar" style="height:${Math.floor(h * 0.4)}px;--d:${(0.5 + i * 0.08).toFixed(2)}s;--dl:${(i * 0.05).toFixed(2)}s;--mn:${Math.floor(h * 0.3)}px;--mx:${h}px"></div>`).join('')}
+        </div>
+      </div>
+      <div class="close-btn" onclick="closePanel()">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+          <path d="M1 1l8 8M9 1L1 9" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="audio-block">
+      <div class="audio-label">
+        <div class="audio-label-icon voice">
+          <svg width="9" height="10" viewBox="0 0 9 12" fill="none">
+            <rect x="2.5" y="0" width="4" height="7" rx="2" fill="rgba(199,125,255,0.8)"/>
+            <path d="M0.5 5.5a4 4 0 008 0" stroke="rgba(199,125,255,0.8)" stroke-width="1" stroke-linecap="round" fill="none"/>
+            <line x1="4.5" y1="9.5" x2="4.5" y2="11.5" stroke="rgba(199,125,255,0.8)" stroke-width="1" stroke-linecap="round"/>
+          </svg>
+        </div>
+        mensagem de voz
+      </div>
+      ${p.audio_voz
+        ? buildPlayer('voice', idx, p.audio_voz, p.audio_voz_titulo, 'voice-fill', color)
+        : `<div class="no-audio">áudio não adicionado ainda</div>`
+      }
+    </div>
+
+    <div class="audio-block">
+      <div class="audio-label">
+        <div class="audio-label-icon music">
+          <svg width="9" height="10" viewBox="0 0 10 12" fill="none">
+            <path d="M3 9V2l7-1.5v7" stroke="rgba(255,180,60,0.8)" stroke-width="1" stroke-linecap="round" fill="none"/>
+            <circle cx="2" cy="9" r="2" stroke="rgba(255,180,60,0.8)" stroke-width="1" fill="none"/>
+            <circle cx="8.5" cy="7.5" r="2" stroke="rgba(255,180,60,0.8)" stroke-width="1" fill="none"/>
+          </svg>
+        </div>
+        música que lembra a manu
+      </div>
+      ${p.audio_musica
+        ? buildPlayer('music', idx, p.audio_musica, p.audio_musica_titulo, 'music-fill', '#ffb340')
+        : `<div class="no-audio">música não adicionada ainda</div>`
+      }
+    </div>
+  `;
+
+    if (p.audio_voz) setupPlayer('voice', idx, p.audio_voz);
+    if (p.audio_musica) setupPlayer('music', idx, p.audio_musica);
+  }
+
+  function buildPlayer(type, idx, src, title, fillClass, color) {
+    const pid = type + '-' + idx;
+    const isMusic = type === 'music';
+    return `
+    <div class="custom-player">
+      <div class="play-btn ${isMusic ? 'music-btn' : ''}" id="play-${pid}" onclick="togglePlay('${pid}','${type}')">
+        <svg id="icon-${pid}" width="12" height="12" viewBox="0 0 12 14" fill="none">
+          <path d="M2 1l10 6-10 6V1z" fill="${isMusic ? 'rgba(255,180,60,0.9)' : 'rgba(199,125,255,0.9)'}"/>
+        </svg>
+      </div>
+      <div class="player-info">
+        <div class="player-title">${title || (type === 'music' ? 'Música especial' : 'Mensagem de voz')}</div>
+        <div class="player-sub" id="time-${pid}">00:00</div>
+        <div class="progress-bar" onclick="seekAudio('${pid}',event)">
+          <div class="progress-fill ${fillClass}" id="prog-${pid}"></div>
+        </div>
+      </div>
+    </div>
+  `;
+  }
+
+  function setupPlayer(type, idx, src) {
+    const pid = type + '-' + idx;
+    const audio = new Audio(src);
+
+    // SE FOR MÚSICA, DEIXA O VOLUME MAIS BAIXO (20% do volume)
+    if (type === 'music') {
+      audio.volume = 0.2; // Altere para 0.1 se quiser mais baixo ou 0.3 para mais alto
+    }
+
+    audios[pid] = audio;
+    audio.ontimeupdate = () => {
+      if (!audio.duration) return;
+      const pct = (audio.currentTime / audio.duration * 100).toFixed(1);
+      const el = document.getElementById('prog-' + pid);
+      const tel = document.getElementById('time-' + pid);
+      if (el) el.style.width = pct + '%';
+      if (tel) tel.textContent = formatTime(audio.currentTime) + ' / ' + formatTime(audio.duration);
+    };
+    audio.onended = () => {
+      const btn = document.getElementById('play-' + pid);
+      if (btn) btn.classList.remove('playing');
+      updatePlayIcon(pid, false, type === 'music');
+
+      if (type === 'voice') {
+        document.querySelectorAll('.wm-bar').forEach(b => b.classList.remove('active'));
+        // Para o pulso da órbita quando o áudio acabar
+        const orbitItem = document.getElementById('orbit-item-' + activeIdx);
+        if (orbitItem) orbitItem.classList.remove('is-playing');
+      }
+    };
+  }
+
+  function togglePlay(pid, type) {
+    const audio = audios[pid];
+    if (!audio) return;
+
+    const isPlaying = !audio.paused;
+    const btn = document.getElementById('play-' + pid);
+
+    // Pega o item da órbita correspondente ao índice atual
+    const orbitItem = document.getElementById('orbit-item-' + activeIdx);
+
+    if (isPlaying) {
+      audio.pause();
+      if (btn) btn.classList.remove('playing');
+      updatePlayIcon(pid, false, type === 'music');
+
+      if (type === 'voice') {
+        document.querySelectorAll('.wm-bar').forEach(b => b.classList.remove('active'));
+        if (orbitItem) orbitItem.classList.remove('is-playing'); // PARA O PULSO
+      }
+    } else {
+      audio.play();
+      if (btn) btn.classList.add('playing');
+      updatePlayIcon(pid, true, type === 'music');
+
+      if (type === 'voice') {
+        document.querySelectorAll('.wm-bar').forEach(b => b.classList.add('active'));
+        if (orbitItem) orbitItem.classList.add('is-playing'); // COMEÇA O PULSO
+      }
+    }
+  }
+
+  function updatePlayIcon(pid, playing, isMusic) {
+    const icon = document.getElementById('icon-' + pid);
+    if (!icon) return;
+    const color = isMusic ? 'rgba(255,180,60,0.9)' : 'rgba(199,125,255,0.9)';
+    if (playing) {
+      icon.innerHTML = `<rect x="1" y="1" width="3.5" height="12" rx="1" fill="${color}"/><rect x="7.5" y="1" width="3.5" height="12" rx="1" fill="${color}"/>`;
+    } else {
+      icon.innerHTML = `<path d="M2 1l10 6-10 6V1z" fill="${color}"/>`;
+    }
+  }
+
+  function seekAudio(pid, e) {
+    const audio = audios[pid];
+    if (!audio || !audio.duration) return;
+    const bar = e.currentTarget;
+    const pct = e.offsetX / bar.offsetWidth;
+    audio.currentTime = pct * audio.duration;
+  }
+
+  function formatTime(s) {
+    const m = Math.floor(s / 60);
+    const sec = Math.floor(s % 60);
+    return String(m).padStart(2, '0') + ':' + String(sec).padStart(2, '0');
+  }
+
+  document.getElementById('musica-volume').addEventListener('input', (e) => {
+    const vol = e.target.value / 100;
+    document.getElementById('vol-val').textContent = e.target.value + '%';
+
+    // Atualiza o volume de todas as músicas carregadas
+    for (let pid in audios) {
+      if (pid.startsWith('music')) {
+        audios[pid].volume = vol;
+      }
+    }
+  });
+
+  function buildOrbit() {
+    const track = document.getElementById('orbit-track');
+    track.innerHTML = '';
+    const total = DATA.length;
+
+    // Raio da órbita (distância do centro). Ajuste se quiser mais perto ou longe.
+    const radius = 85;
+
+    DATA.forEach((p, i) => {
+      // Calcula o ângulo perfeito para distribuir igualmente no círculo
+      const angle = (i / total) * 2 * Math.PI;
+
+      // Converte o ângulo polar em coordenadas X e Y
+      const x = Math.cos(angle) * radius;
+      const y = Math.sin(angle) * radius;
+
+      const item = document.createElement('div');
+      item.className = 'orbit-item';
+      item.id = 'orbit-item-' + i;
+      // Empurra a bolinha pro lugar exato no círculo
+      item.style.setProperty('--tx', `${x}px`);
+      item.style.setProperty('--ty', `${y}px`);
+      item.style.transform = `translate(var(--tx), var(--ty))`;
+
+      // Ação de clique para sintonizar a pessoa
+      item.onclick = () => {
+        // Rola a tela até o player e dá o play
+        togglePanel(i);
+      };
+
+      const color = colors[i % colors.length];
+      const init = initials(p.nome);
+
+      // Coloca a foto ou as iniciais com a classe de contra-giro
+      if (p.foto) {
+        item.innerHTML = `
+          <div class="orbit-content">
+            <img src="${p.foto}" alt="${p.nome}">
+          </div>
+        `;
+      } else {
+        item.innerHTML = `
+          <div class="orbit-content" style="color:${color}">
+            ${init}
+          </div>
+        `;
+      }
+
+      track.appendChild(item);
+    });
+  }
+
+  function setItemElevation(idx, elevate) {
+    const item = document.getElementById('orbit-item-' + idx);
+    const lowTrack = document.getElementById('orbit-track');
+    const highTrack = document.getElementById('elevated-track');
+
+    if (!item || !lowTrack || !highTrack) return;
+
+    if (elevate) {
+      // Move fisicamente o elemento para a órbita de cima (acima da Manu)
+      highTrack.appendChild(item);
+    } else {
+      // Devolve o elemento para a órbita padrão (abaixo da Manu)
+      lowTrack.appendChild(item);
+    }
+  }
+
+  //buildMarks();
+  //buildGrid();
+  iniciarRadio();
+  document.getElementById('footer').textContent = DATA.length + ' pessoas sintonizadas com amor';
+</script>

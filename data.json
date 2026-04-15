@@ -1,0 +1,48 @@
+[
+  {
+    "nome": "Rebecca",
+    "relacao": "Líder/Amiga",
+    "foto": "fotos/foto-rebeka-líder.jpeg",
+    "audio_voz": "audios/rebeca-lider.mp3",
+    "audio_voz_titulo": "Mensagem da Rebeca",
+    "audio_musica": "audios/Djavan - Linha do Equador (ýudio Oficial) - DjavanVEVO (youtube).mp3",
+    "audio_musica_titulo": "Linha do Equador - Djavan"
+  },
+  {
+    "nome": "Helo",
+    "relacao": "Amiga",
+    "foto": "fotos/foto-helo.jpeg",
+    "audio_voz": "audios/HELO 3D.mp4",
+    "audio_voz_titulo": "Mensagem da Helo",
+    "audio_musica": "audios/LAGUM - A Cidade (Clipe Oficial) - Lagum (youtube).mp3",
+    "audio_musica_titulo": "A Cidade - Lagum"
+  },
+  {
+    "nome": "Julia Mendes",
+    "relacao": "Amiga",
+    "foto": "fotos/foto-ju-mendes.jpeg",
+    "audio_voz": "audios/AUDIO-JU-MENDES.mp3",
+    "audio_voz_titulo": "Audio da Ju",
+    "audio_musica": "audios/Tim Bernardes - BB (Garupa de Moto Amarela) (Live on KEXP) - KEXP (128k).mp3",
+    "audio_musica_titulo": "Tim Bernardes - BB"
+  },
+  {
+    "nome": "Maitê",
+    "relacao": "Amiga",
+    "foto": "fotos/foto-maite.jpeg",
+    "audio_voz": "audios/Maitê.mp3",
+    "audio_voz_titulo": "Mensagem da Maitê",
+    "audio_musica": "audios/YTDown.com_YouTube_Lagum-Olha-Bela-Clipe-Oficial-faixa4_Media_B3amFvHXdGs_009_128k.mp3",
+    "audio_musica_titulo": "Olha, Bela - Lagum"
+  },
+  {
+    "nome": "Leo martinelli",
+    "relacao": "Amigo",
+    "foto": "fotos/Gemini_Generated_Image_qbkeq3qbkeq3qbke.png",
+    "audio_voz": null,
+    "audio_voz_titulo": null,
+    "audio_musica": null,
+    "audio_musica_titulo": null
+  }
+ 
+]
