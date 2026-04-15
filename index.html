@@ -755,7 +755,8 @@
   const colors = ['#7b2fff', '#c77dff', '#ff6b9d', '#ffb340', '#4ecdc4', '#45b7d1'];
   let activeIdx = null;
   let audios = {};
-
+  let audioCtx = null;
+  let gainNodes = {};
   // 2. Criamos uma função assíncrona para buscar os dados
   async function iniciarRadio() {
     try {
@@ -810,6 +811,14 @@
   }
 
   function togglePanel(idx) {
+
+    // --- INICIA O ÁUDIO NO CLIQUE (Proteção para iPhone/Android) ---
+    if (!audioCtx) {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
     if (activeIdx === idx) {
       closePanel();
       return;
@@ -981,12 +990,11 @@
     const pid = type + '-' + idx;
     const audio = new Audio(src);
 
-    // SE FOR MÚSICA, DEIXA O VOLUME MAIS BAIXO (20% do volume)
-    if (type === 'music') {
-      audio.volume = 0.2; // Altere para 0.1 se quiser mais baixo ou 0.3 para mais alto
-    }
+    // Essencial para o Celular permitir o Web Audio API
+    audio.crossOrigin = "anonymous";
 
     audios[pid] = audio;
+
     audio.ontimeupdate = () => {
       if (!audio.duration) return;
       const pct = (audio.currentTime / audio.duration * 100).toFixed(1);
@@ -995,14 +1003,13 @@
       if (el) el.style.width = pct + '%';
       if (tel) tel.textContent = formatTime(audio.currentTime) + ' / ' + formatTime(audio.duration);
     };
+
     audio.onended = () => {
       const btn = document.getElementById('play-' + pid);
       if (btn) btn.classList.remove('playing');
       updatePlayIcon(pid, false, type === 'music');
-
       if (type === 'voice') {
         document.querySelectorAll('.wm-bar').forEach(b => b.classList.remove('active'));
-        // Para o pulso da órbita quando o áudio acabar
         const orbitItem = document.getElementById('orbit-item-' + activeIdx);
         if (orbitItem) orbitItem.classList.remove('is-playing');
       }
@@ -1013,10 +1020,27 @@
     const audio = audios[pid];
     if (!audio) return;
 
+    // --- MESA DE SOM VIRTUAL (Web Audio API) ---
+    // Se esse áudio ainda não foi conectado ao mixer, conectamos agora
+    if (!gainNodes[pid]) {
+      const source = audioCtx.createMediaElementSource(audio);
+      const gainNode = audioCtx.createGain();
+      source.connect(gainNode);
+      gainNode.connect(audioCtx.destination);
+      gainNodes[pid] = gainNode;
+
+      // Ajusta o volume com base na barra antes de dar play
+      if (type === 'music') {
+        const sliderVal = document.getElementById('musica-volume').value / 100;
+        gainNode.gain.value = sliderVal;
+      } else {
+        gainNode.gain.value = 1.0; // Voz sempre no máximo
+      }
+    }
+    // -------------------------------------------
+
     const isPlaying = !audio.paused;
     const btn = document.getElementById('play-' + pid);
-
-    // Pega o item da órbita correspondente ao índice atual
     const orbitItem = document.getElementById('orbit-item-' + activeIdx);
 
     if (isPlaying) {
@@ -1026,7 +1050,7 @@
 
       if (type === 'voice') {
         document.querySelectorAll('.wm-bar').forEach(b => b.classList.remove('active'));
-        if (orbitItem) orbitItem.classList.remove('is-playing'); // PARA O PULSO
+        if (orbitItem) orbitItem.classList.remove('is-playing');
       }
     } else {
       audio.play();
@@ -1035,7 +1059,7 @@
 
       if (type === 'voice') {
         document.querySelectorAll('.wm-bar').forEach(b => b.classList.add('active'));
-        if (orbitItem) orbitItem.classList.add('is-playing'); // COMEÇA O PULSO
+        if (orbitItem) orbitItem.classList.add('is-playing');
       }
     }
   }
@@ -1065,17 +1089,28 @@
     return String(m).padStart(2, '0') + ':' + String(sec).padStart(2, '0');
   }
 
-  document.getElementById('musica-volume').addEventListener('input', (e) => {
+  const slider = document.getElementById('musica-volume');
+
+  function atualizaVolume(e) {
     const vol = e.target.value / 100;
     document.getElementById('vol-val').textContent = e.target.value + '%';
 
-    // Atualiza o volume de todas as músicas carregadas
     for (let pid in audios) {
       if (pid.startsWith('music')) {
-        audios[pid].volume = vol;
+        audios[pid].volume = vol; // Fallback para PC
       }
     }
-  });
+
+    // A MÁGICA DO CELULAR: Altera o ganho diretamente no mixer!
+    for (let pid in gainNodes) {
+      if (pid.startsWith('music')) {
+        gainNodes[pid].gain.value = vol;
+      }
+    }
+  }
+
+  slider.addEventListener('input', atualizaVolume);
+  slider.addEventListener('change', atualizaVolume);
 
   function buildOrbit() {
     const track = document.getElementById('orbit-track');
