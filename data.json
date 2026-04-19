@@ -43,6 +43,71 @@
     "audio_voz_titulo": null,
     "audio_musica": null,
     "audio_musica_titulo": null
+  },
+  {
+    "nome": "Tontom",
+    "relacao": "Amiga",
+    "foto": "fotos/foto-tontom.jpeg",
+    "audio_voz": "audios/audio-tontom.mp3",
+    "audio_voz_titulo": "Mensagem da Tontom",
+    "audio_musica": "audios/Lagum - Detesto Despedidas - Ao Vivo - Lagum (128k).mp3",
+    "audio_musica_titulo": "Detesto Despedidas - LAGUM"
+  },
+  {
+    "nome": "Livoka",
+    "relacao": "Amiga",
+    "foto": "fotos/foto-livoka.jpeg",
+    "audio_voz": "audios/audio-livoka.mp3",
+    "audio_voz_titulo": "Mensagem da Livoka",
+    "audio_musica": "audios/YouTube_Lagum-Deixa-Ao-Vivo_Media_oF0o_ISkwzk_009_128k.mp3",
+    "audio_musica_titulo": "Deixa - LAGUM"
+  },
+  {
+    "nome": "Bia Munhoes",
+    "relacao": "Amiga",
+    "foto": null,
+    "audio_voz": "audios/audio-biamunhoes.mp3",
+    "audio_voz_titulo": "Mensagem Bia Munhoes",
+    "audio_musica": "audios/Ytmp3.gg_YouTube_DNCE-Cake-By-The-Ocean_Media_PAzH-YAlFYc_009_128k.mp3",
+    "audio_musica_titulo": "Cake By The Ocean - DNCE"
+  },
+  {
+    "nome": "Pai",
+    "relacao": "Pai",
+    "foto": "fotos/foto-pai.png",
+    "audio_voz": "audios/audio-pai.mp3",
+    "audio_voz_titulo": "Mensagem do Pai",
+    "audio_musica": "audios/Ytmp3.gg_YouTube_Caderno-Toquinho-letra-legendado_Media_-Gsu751X6ag_008_128k.mp3",
+    "audio_musica_titulo": "Caderno - Toquinho"
+  },
+  {
+    "nome": "Tia fer",
+    "relacao": "Madrasta",
+    "foto": null,
+    "audio_voz": "audios/audio-tiafe.mp3",
+    "audio_voz_titulo": "Mensagem da Tia Fer",
+    "audio_musica": null,
+    "audio_musica_titulo": null
+  },
+  {
+    "nome": "Marisa",
+    "relacao": "Amiga",
+    "foto": null,
+    "audio_voz": "audios/audio-marisa.mp3",
+    "audio_voz_titulo": "Mensagem da Marisa",
+    "audio_musica": "audios/YouTube_Rubel-_-ANAVITORIA-Partilhar-Audio_Media_hlAjJAlN7u0_009_128k.mp3",
+    "audio_musica_titulo": "Partilhar - Rubel e Anavitória"
+  },
+  {
+    "nome": "Mãe",
+    "relacao": "Mãe",
+    "foto": null,
+    "audio_voz": "audios/audio-mãe.mp3",
+    "audio_voz_titulo": "Mensagem da Mãe",
+    "audio_musica": "audios/Ytmp3.gg_YouTube_Caderno-Toquinho-letra-legendado_Media_-Gsu751X6ag_008_128k.mp3",
+    "audio_musica_titulo": "Caderno - Toquinho"
   }
+
+
  
 ]
