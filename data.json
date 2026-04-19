@@ -92,7 +92,7 @@
   {
     "nome": "Marisa",
     "relacao": "Amiga",
-    "foto": null,
+    "foto": "fotos/foto-marisa.jpeg",
     "audio_voz": "audios/audio-marisa.mp3",
     "audio_voz_titulo": "Mensagem da Marisa",
     "audio_musica": "audios/YouTube_Rubel-_-ANAVITORIA-Partilhar-Audio_Media_hlAjJAlN7u0_009_128k.mp3",
