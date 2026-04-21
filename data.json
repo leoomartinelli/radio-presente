@@ -65,7 +65,7 @@
   {
     "nome": "Bia Munhoes",
     "relacao": "Amiga",
-    "foto": null,
+    "foto": "fotos/foto-biamunhoes.png",
     "audio_voz": "audios/audio-biamunhoes.mp3",
     "audio_voz_titulo": "Mensagem Bia Munhoes",
     "audio_musica": "audios/Ytmp3.gg_YouTube_DNCE-Cake-By-The-Ocean_Media_PAzH-YAlFYc_009_128k.mp3",
@@ -83,7 +83,7 @@
   {
     "nome": "Tia fer",
     "relacao": "Madrasta",
-    "foto": null,
+    "foto": "fotos/foto-tiafer.jpeg",
     "audio_voz": "audios/audio-tiafe.mp3",
     "audio_voz_titulo": "Mensagem da Tia Fer",
     "audio_musica": null,
@@ -106,6 +106,15 @@
     "audio_voz_titulo": "Mensagem da Mãe",
     "audio_musica": "audios/Ytmp3.gg_YouTube_Caderno-Toquinho-letra-legendado_Media_-Gsu751X6ag_008_128k.mp3",
     "audio_musica_titulo": "Caderno - Toquinho"
+  },
+  {
+    "nome": "Ana Lu",
+    "relacao": "Amiga",
+    "foto": "fotos/foto-analu.jpeg",
+    "audio_voz": "audios/audio-analu.mp3",
+    "audio_voz_titulo": "Mensagem da Ana Lu",
+    "audio_musica": "audios/Você é Especial - CIA DO LUME.mp3",
+    "audio_musica_titulo": "Você é Especial - CIA DO LUME"
   }
 
 
