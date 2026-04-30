@@ -115,8 +115,41 @@
     "audio_voz_titulo": "Mensagem da Ana Lu",
     "audio_musica": "audios/Você é Especial - CIA DO LUME.mp3",
     "audio_musica_titulo": "Você é Especial - CIA DO LUME"
+  },
+  {
+    "nome": "Mari",
+    "relacao": "Amiga",
+    "foto": "fotos/Foto-mari.jpeg",
+    "audio_voz": "audios/audio-mari.mp3",
+    "audio_voz_titulo": "Mensagem da Mari",
+    "audio_musica": "audios/Backhouse Mike - Just Fine (LyricsSam & Cat Themefull song) - Music Tryyy (128k).mp3",
+    "audio_musica_titulo": "Just Fine - Sam & Cat"
+  },
+  {
+    "nome": "João",
+    "relacao": "Irmão",
+    "foto": null,
+    "audio_voz": "audios/audio-joão_join.mp3",
+    "audio_voz_titulo": "Mensagem do Irmão",
+    "audio_musica": null,
+    "audio_musica_titulo": null
+  },
+  {
+    "nome": "Avós",
+    "relacao": "Avós",
+    "foto": null,
+    "audio_voz": "audios/audio-avós.mp3",
+    "audio_voz_titulo": "Áudio dos Avós",
+    "audio_musica": null,
+    "audio_musica_titulo": null
+  },
+  {
+    "nome": "Sophia",
+    "relacao": "Melhor Amiga Best Forever",
+    "foto": "fotos/foto-sophia.jpeg",
+    "audio_voz": "audios/audio-sophia.mp3",
+    "audio_voz_titulo": "Mensagem da Sophia",
+    "audio_musica": "audios/YTDown_YouTube_LAGUM-Eterno-Agora_Media_qHVkJ1Nloik_009_128k.mp3",
+    "audio_musica_titulo": "Eterno Agora - LAGUM"
   }
-
-
- 
 ]
