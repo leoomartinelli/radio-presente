@@ -734,6 +734,26 @@
       <div class="freq">FM 17.0 — ESPECIAL</div>
     </div>
 
+    <!-- PLAYER DA RÁDIO PRINCIPAL -->
+    <div id="radio-container"
+      style="display: none; padding: 10px 20px; background: rgba(199, 125, 255, 0.08); border-radius: 10px; margin: 10px 16px 0px 16px; border: 1px solid rgba(199, 125, 255, 0.2);">
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div class="play-btn" id="play-radio-principal" onclick="toggleRadioPrincipal()">
+            <svg id="icon-radio-principal" width="12" height="12" viewBox="0 0 12 14" fill="none">
+              <path d="M2 1l10 6-10 6V1z" fill="rgba(199,125,255,0.9)" />
+            </svg>
+          </div>
+          <div>
+            <div style="font-size: 12px; font-weight: 600; color: #fff;">Rádio Principal</div>
+            <div style="font-size: 10px; color: rgba(255,255,255,0.5); letter-spacing: 1px; text-transform: uppercase;">
+              Ao vivo</div>
+          </div>
+        </div>
+      </div>
+      <audio id="audio-radio-principal" loop></audio>
+    </div>
+
     <div style="padding: 10px 20px; background: rgba(255,255,255,0.05); border-radius: 10px; margin: 10px 16px;">
       <label
         style="font-size: 10px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1px;">Volume
@@ -769,15 +789,27 @@
       try {
         const resposta = await fetch('data.json');
         if (!resposta.ok) throw new Error('Falha');
-        DATA = await resposta.json();
+        const json = await resposta.json();
 
+        // Verifica se é o formato antigo (array) ou o novo (objeto com a rádio)
+        if (Array.isArray(json)) {
+          DATA = json;
+        } else {
+          DATA = json.pessoas || [];
+          if (json.radio_principal) {
+            document.getElementById('radio-container').style.display = 'block';
+            document.getElementById('audio-radio-principal').src = json.radio_principal;
+          }
+        }
+
+        // Constrói os elementos da tela
         buildMarks();
         buildGrid();
         buildOrbit();
 
         document.getElementById('footer').textContent = DATA.length + ' pessoas sintonizadas com amor';
       } catch (erro) {
-        console.error(erro);
+        console.error('Erro ao carregar o JSON:', erro);
       }
     }
 
@@ -912,7 +944,17 @@
       document.querySelectorAll('.play-btn').forEach(b => b.classList.remove('playing'));
       document.querySelectorAll('.progress-fill').forEach(b => b.style.width = '0%');
       document.querySelectorAll('.wm-bar').forEach(b => b.classList.remove('active'));
+      // Pausa a rádio principal também
+      const radioAudio = document.getElementById('audio-radio-principal');
+      if (radioAudio && !radioAudio.paused) {
+        radioAudio.pause();
+        const icon = document.getElementById('icon-radio-principal');
+        const btn = document.getElementById('play-radio-principal');
+        if (btn) btn.classList.remove('playing');
+        if (icon) icon.innerHTML = `<path d="M2 1l10 6-10 6V1z" fill="rgba(199,125,255,0.9)"/>`;
+      }
     }
+
 
     function renderPanel(idx) {
       const p = DATA[idx];
@@ -1181,6 +1223,23 @@
         highTrack.appendChild(item);
       } else {
         lowTrack.appendChild(item);
+      }
+    }
+
+    function toggleRadioPrincipal() {
+      const audio = document.getElementById('audio-radio-principal');
+      const icon = document.getElementById('icon-radio-principal');
+      const btn = document.getElementById('play-radio-principal');
+
+      if (audio.paused) {
+        stopAll(); // Silencia qualquer pessoa que esteja tocando antes
+        audio.play();
+        btn.classList.add('playing');
+        icon.innerHTML = `<rect x="1" y="1" width="3.5" height="12" rx="1" fill="rgba(199,125,255,0.9)"/><rect x="7.5" y="1" width="3.5" height="12" rx="1" fill="rgba(199,125,255,0.9)"/>`;
+      } else {
+        audio.pause();
+        btn.classList.remove('playing');
+        icon.innerHTML = `<path d="M2 1l10 6-10 6V1z" fill="rgba(199,125,255,0.9)"/>`;
       }
     }
 

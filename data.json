@@ -1,155 +1,158 @@
-[
-  {
-    "nome": "Rebecca",
-    "relacao": "Líder/Amiga",
-    "foto": "fotos/foto-rebeka-líder.jpeg",
-    "audio_voz": "audios/rebeca-lider.mp3",
-    "audio_voz_titulo": "Mensagem da Rebeca",
-    "audio_musica": "audios/Djavan - Linha do Equador (ýudio Oficial) - DjavanVEVO (youtube).mp3",
-    "audio_musica_titulo": "Linha do Equador - Djavan"
-  },
-  {
-    "nome": "Helo",
-    "relacao": "Amiga",
-    "foto": "fotos/foto-helo.jpeg",
-    "audio_voz": "audios/HELO 3D.mp4",
-    "audio_voz_titulo": "Mensagem da Helo",
-    "audio_musica": "audios/LAGUM - A Cidade (Clipe Oficial) - Lagum (youtube).mp3",
-    "audio_musica_titulo": "A Cidade - Lagum"
-  },
-  {
-    "nome": "Julia Mendes",
-    "relacao": "Amiga",
-    "foto": "fotos/foto-ju-mendes.jpeg",
-    "audio_voz": "audios/AUDIO-JU-MENDES.mp3",
-    "audio_voz_titulo": "Audio da Ju",
-    "audio_musica": "audios/Tim Bernardes - BB (Garupa de Moto Amarela) (Live on KEXP) - KEXP (128k).mp3",
-    "audio_musica_titulo": "Tim Bernardes - BB"
-  },
-  {
-    "nome": "Maitê",
-    "relacao": "Amiga",
-    "foto": "fotos/foto-maite.jpeg",
-    "audio_voz": "audios/Maitê.mp3",
-    "audio_voz_titulo": "Mensagem da Maitê",
-    "audio_musica": "audios/YTDown.com_YouTube_Lagum-Olha-Bela-Clipe-Oficial-faixa4_Media_B3amFvHXdGs_009_128k.mp3",
-    "audio_musica_titulo": "Olha, Bela - Lagum"
-  },
-  {
-    "nome": "Leo martinelli",
-    "relacao": "Amigo",
-    "foto": "fotos/Gemini_Generated_Image_qbkeq3qbkeq3qbke.png",
-    "audio_voz": null,
-    "audio_voz_titulo": null,
-    "audio_musica": null,
-    "audio_musica_titulo": null
-  },
-  {
-    "nome": "Tontom",
-    "relacao": "Amiga",
-    "foto": "fotos/foto-tontom.jpeg",
-    "audio_voz": "audios/audio-tontom.mp3",
-    "audio_voz_titulo": "Mensagem da Tontom",
-    "audio_musica": "audios/Lagum - Detesto Despedidas - Ao Vivo - Lagum (128k).mp3",
-    "audio_musica_titulo": "Detesto Despedidas - LAGUM"
-  },
-  {
-    "nome": "Livoka",
-    "relacao": "Amiga",
-    "foto": "fotos/foto-livoka.jpeg",
-    "audio_voz": "audios/audio-livoka.mp3",
-    "audio_voz_titulo": "Mensagem da Livoka",
-    "audio_musica": "audios/YouTube_Lagum-Deixa-Ao-Vivo_Media_oF0o_ISkwzk_009_128k.mp3",
-    "audio_musica_titulo": "Deixa - LAGUM"
-  },
-  {
-    "nome": "Bia Munhoes",
-    "relacao": "Amiga",
-    "foto": "fotos/foto-biamunhoes.png",
-    "audio_voz": "audios/audio-biamunhoes.mp3",
-    "audio_voz_titulo": "Mensagem Bia Munhoes",
-    "audio_musica": "audios/Ytmp3.gg_YouTube_DNCE-Cake-By-The-Ocean_Media_PAzH-YAlFYc_009_128k.mp3",
-    "audio_musica_titulo": "Cake By The Ocean - DNCE"
-  },
-  {
-    "nome": "Pai",
-    "relacao": "Pai",
-    "foto": "fotos/foto-pai.png",
-    "audio_voz": "audios/audio-pai.mp3",
-    "audio_voz_titulo": "Mensagem do Pai",
-    "audio_musica": "audios/Ytmp3.gg_YouTube_Caderno-Toquinho-letra-legendado_Media_-Gsu751X6ag_008_128k.mp3",
-    "audio_musica_titulo": "Caderno - Toquinho"
-  },
-  {
-    "nome": "Tia fer",
-    "relacao": "Madrasta",
-    "foto": "fotos/foto-tiafer.jpeg",
-    "audio_voz": "audios/audio-tiafe.mp3",
-    "audio_voz_titulo": "Mensagem da Tia Fer",
-    "audio_musica": null,
-    "audio_musica_titulo": null
-  },
-  {
-    "nome": "Marisa",
-    "relacao": "Amiga",
-    "foto": "fotos/foto-marisa.jpeg",
-    "audio_voz": "audios/audio-marisa.mp3",
-    "audio_voz_titulo": "Mensagem da Marisa",
-    "audio_musica": "audios/YouTube_Rubel-_-ANAVITORIA-Partilhar-Audio_Media_hlAjJAlN7u0_009_128k.mp3",
-    "audio_musica_titulo": "Partilhar - Rubel e Anavitória"
-  },
-  {
-    "nome": "Mãe",
-    "relacao": "Mãe",
-    "foto": null,
-    "audio_voz": "audios/audio-mãe.mp3",
-    "audio_voz_titulo": "Mensagem da Mãe",
-    "audio_musica": "audios/Ytmp3.gg_YouTube_Caderno-Toquinho-letra-legendado_Media_-Gsu751X6ag_008_128k.mp3",
-    "audio_musica_titulo": "Caderno - Toquinho"
-  },
-  {
-    "nome": "Ana Lu",
-    "relacao": "Amiga",
-    "foto": "fotos/foto-analu.jpeg",
-    "audio_voz": "audios/audio-analu.mp3",
-    "audio_voz_titulo": "Mensagem da Ana Lu",
-    "audio_musica": "audios/Você é Especial - CIA DO LUME.mp3",
-    "audio_musica_titulo": "Você é Especial - CIA DO LUME"
-  },
-  {
-    "nome": "Mari",
-    "relacao": "Amiga",
-    "foto": "fotos/Foto-mari.jpeg",
-    "audio_voz": "audios/audio-mari.mp3",
-    "audio_voz_titulo": "Mensagem da Mari",
-    "audio_musica": "audios/Backhouse Mike - Just Fine (LyricsSam & Cat Themefull song) - Music Tryyy (128k).mp3",
-    "audio_musica_titulo": "Just Fine - Sam & Cat"
-  },
-  {
-    "nome": "João",
-    "relacao": "Irmão",
-    "foto": null,
-    "audio_voz": "audios/audio-joão_join.mp3",
-    "audio_voz_titulo": "Mensagem do Irmão",
-    "audio_musica": null,
-    "audio_musica_titulo": null
-  },
-  {
-    "nome": "Avós",
-    "relacao": "Avós",
-    "foto": null,
-    "audio_voz": "audios/audio-avós.mp3",
-    "audio_voz_titulo": "Áudio dos Avós",
-    "audio_musica": null,
-    "audio_musica_titulo": null
-  },
-  {
-    "nome": "Sophia",
-    "relacao": "Melhor Amiga Best Forever",
-    "foto": "fotos/foto-sophia.jpeg",
-    "audio_voz": "audios/audio-sophia.mp3",
-    "audio_voz_titulo": "Mensagem da Sophia",
-    "audio_musica": "audios/YTDown_YouTube_LAGUM-Eterno-Agora_Media_qHVkJ1Nloik_009_128k.mp3",
-    "audio_musica_titulo": "Eterno Agora - LAGUM"
-  }
-]
+{
+  "radio_principal": "audios/MANUFM17.mp3",
+  "pessoas": [
+    {
+      "nome": "Rebecca",
+      "relacao": "Líder/Amiga",
+      "foto": "fotos/foto-rebeka-líder.jpeg",
+      "audio_voz": "audios/rebeca-lider.mp3",
+      "audio_voz_titulo": "Mensagem da Rebeca",
+      "audio_musica": "audios/Djavan - Linha do Equador (ýudio Oficial) - DjavanVEVO (youtube).mp3",
+      "audio_musica_titulo": "Linha do Equador - Djavan"
+    },
+    {
+      "nome": "Helo",
+      "relacao": "Amiga",
+      "foto": "fotos/foto-helo.jpeg",
+      "audio_voz": "audios/HELO 3D.mp4",
+      "audio_voz_titulo": "Mensagem da Helo",
+      "audio_musica": "audios/LAGUM - A Cidade (Clipe Oficial) - Lagum (youtube).mp3",
+      "audio_musica_titulo": "A Cidade - Lagum"
+    },
+    {
+      "nome": "Julia Mendes",
+      "relacao": "Amiga",
+      "foto": "fotos/foto-ju-mendes.jpeg",
+      "audio_voz": "audios/AUDIO-JU-MENDES.mp3",
+      "audio_voz_titulo": "Audio da Ju",
+      "audio_musica": "audios/Tim Bernardes - BB (Garupa de Moto Amarela) (Live on KEXP) - KEXP (128k).mp3",
+      "audio_musica_titulo": "Tim Bernardes - BB"
+    },
+    {
+      "nome": "Maitê",
+      "relacao": "Amiga",
+      "foto": "fotos/foto-maite.jpeg",
+      "audio_voz": "audios/Maitê.mp3",
+      "audio_voz_titulo": "Mensagem da Maitê",
+      "audio_musica": "audios/YTDown.com_YouTube_Lagum-Olha-Bela-Clipe-Oficial-faixa4_Media_B3amFvHXdGs_009_128k.mp3",
+      "audio_musica_titulo": "Olha, Bela - Lagum"
+    },
+    {
+      "nome": "Leo martinelli",
+      "relacao": "Amigo",
+      "foto": "fotos/foto-leo.jpeg",
+      "audio_voz": null,
+      "audio_voz_titulo": null,
+      "audio_musica": null,
+      "audio_musica_titulo": null
+    },
+    {
+      "nome": "Tontom",
+      "relacao": "Amiga",
+      "foto": "fotos/foto-tontom.jpeg",
+      "audio_voz": "audios/audio-tontom.mp3",
+      "audio_voz_titulo": "Mensagem da Tontom",
+      "audio_musica": "audios/Lagum - Detesto Despedidas - Ao Vivo - Lagum (128k).mp3",
+      "audio_musica_titulo": "Detesto Despedidas - LAGUM"
+    },
+    {
+      "nome": "Livoka",
+      "relacao": "Amiga",
+      "foto": "fotos/foto-livoka.jpeg",
+      "audio_voz": "audios/audio-livoka.mp3",
+      "audio_voz_titulo": "Mensagem da Livoka",
+      "audio_musica": "audios/YouTube_Lagum-Deixa-Ao-Vivo_Media_oF0o_ISkwzk_009_128k.mp3",
+      "audio_musica_titulo": "Deixa - LAGUM"
+    },
+    {
+      "nome": "Bia Munhoes",
+      "relacao": "Amiga",
+      "foto": "fotos/foto-biamunhoes.png",
+      "audio_voz": "audios/audio-biamunhoes.mp3",
+      "audio_voz_titulo": "Mensagem Bia Munhoes",
+      "audio_musica": "audios/Ytmp3.gg_YouTube_DNCE-Cake-By-The-Ocean_Media_PAzH-YAlFYc_009_128k.mp3",
+      "audio_musica_titulo": "Cake By The Ocean - DNCE"
+    },
+    {
+      "nome": "Pai",
+      "relacao": "Pai",
+      "foto": "fotos/foto-pai.png",
+      "audio_voz": "audios/audio-pai.mp3",
+      "audio_voz_titulo": "Mensagem do Pai",
+      "audio_musica": "audios/Ytmp3.gg_YouTube_Caderno-Toquinho-letra-legendado_Media_-Gsu751X6ag_008_128k.mp3",
+      "audio_musica_titulo": "Caderno - Toquinho"
+    },
+    {
+      "nome": "Tia fer",
+      "relacao": "Madrasta",
+      "foto": "fotos/foto-tiafer.jpeg",
+      "audio_voz": "audios/audio-tiafe.mp3",
+      "audio_voz_titulo": "Mensagem da Tia Fer",
+      "audio_musica": null,
+      "audio_musica_titulo": null
+    },
+    {
+      "nome": "Marisa",
+      "relacao": "Amiga",
+      "foto": "fotos/foto-marisa.jpeg",
+      "audio_voz": "audios/audio-marisa.mp3",
+      "audio_voz_titulo": "Mensagem da Marisa",
+      "audio_musica": "audios/YouTube_Rubel-_-ANAVITORIA-Partilhar-Audio_Media_hlAjJAlN7u0_009_128k.mp3",
+      "audio_musica_titulo": "Partilhar - Rubel e Anavitória"
+    },
+    {
+      "nome": "Mãe",
+      "relacao": "Mãe",
+      "foto": "fotos/mãe.jpeg",
+      "audio_voz": "audios/audio-mãe.mp3",
+      "audio_voz_titulo": "Mensagem da Mãe",
+      "audio_musica": "audios/Ytmp3.gg_YouTube_Caderno-Toquinho-letra-legendado_Media_-Gsu751X6ag_008_128k.mp3",
+      "audio_musica_titulo": "Caderno - Toquinho"
+    },
+    {
+      "nome": "Ana Lu",
+      "relacao": "Amiga",
+      "foto": "fotos/foto-analu.jpeg",
+      "audio_voz": "audios/audio-analu.mp3",
+      "audio_voz_titulo": "Mensagem da Ana Lu",
+      "audio_musica": "audios/Você é Especial - CIA DO LUME.mp3",
+      "audio_musica_titulo": "Você é Especial - CIA DO LUME"
+    },
+    {
+      "nome": "Mari",
+      "relacao": "Amiga",
+      "foto": "fotos/Foto-mari.jpeg",
+      "audio_voz": "audios/audio-mari.mp3",
+      "audio_voz_titulo": "Mensagem da Mari",
+      "audio_musica": "audios/Backhouse Mike - Just Fine (LyricsSam & Cat Themefull song) - Music Tryyy (128k).mp3",
+      "audio_musica_titulo": "Just Fine - Sam & Cat"
+    },
+    {
+      "nome": "João",
+      "relacao": "Irmão",
+      "foto": "fotos/joão.jpeg",
+      "audio_voz": "audios/audio-joão_join.mp3",
+      "audio_voz_titulo": "Mensagem do Irmão",
+      "audio_musica": null,
+      "audio_musica_titulo": null
+    },
+    {
+      "nome": "Avós",
+      "relacao": "Avós",
+      "foto": "fotos/avós.jpeg",
+      "audio_voz": "audios/audio-avós.mp3",
+      "audio_voz_titulo": "Áudio dos Avós",
+      "audio_musica": null,
+      "audio_musica_titulo": null
+    },
+    {
+      "nome": "Sophia",
+      "relacao": "Melhor Amiga Best Forever",
+      "foto": "fotos/foto-sophia.jpeg",
+      "audio_voz": "audios/audio-sophia.mp3",
+      "audio_voz_titulo": "Mensagem da Sophia",
+      "audio_musica": "audios/YTDown_YouTube_LAGUM-Eterno-Agora_Media_qHVkJ1Nloik_009_128k.mp3",
+      "audio_musica_titulo": "Eterno Agora - LAGUM"
+    }
+  ]
+}
