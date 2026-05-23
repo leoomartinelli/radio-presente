@@ -153,6 +153,15 @@
       "audio_voz_titulo": "Mensagem da Sophia",
       "audio_musica": "audios/YTDown_YouTube_LAGUM-Eterno-Agora_Media_qHVkJ1Nloik_009_128k.mp3",
       "audio_musica_titulo": "Eterno Agora - LAGUM"
+    },
+    {
+      "nome": "Kauê",
+      "relacao": "Amigo",
+      "foto": "fotos/foto-kaue.jpeg",
+      "audio_voz": "audios/audio-kaue-primon.mp3",
+      "audio_voz_titulo": "Audio do Kauê",
+      "audio_musica": "",
+      "audio_musica_titulo": ""
     }
   ]
 }
