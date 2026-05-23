@@ -1227,20 +1227,8 @@
     }
 
     function toggleRadioPrincipal() {
-      const audio = document.getElementById('audio-radio-principal');
-      const icon = document.getElementById('icon-radio-principal');
-      const btn = document.getElementById('play-radio-principal');
-
-      if (audio.paused) {
-        stopAll(); // Silencia qualquer pessoa que esteja tocando antes
-        audio.play();
-        btn.classList.add('playing');
-        icon.innerHTML = `<rect x="1" y="1" width="3.5" height="12" rx="1" fill="rgba(199,125,255,0.9)"/><rect x="7.5" y="1" width="3.5" height="12" rx="1" fill="rgba(199,125,255,0.9)"/>`;
-      } else {
-        audio.pause();
-        btn.classList.remove('playing');
-        icon.innerHTML = `<path d="M2 1l10 6-10 6V1z" fill="rgba(199,125,255,0.9)"/>`;
-      }
+      stopAll(); // Silencia qualquer áudio que esteja tocando
+      window.open('https://drive.google.com/file/d/1xKOuNv4KpcEx1LvjTQxTftHWfsDpTh7y/view?usp=sharing', '_blank');
     }
 
     iniciarRadio();
